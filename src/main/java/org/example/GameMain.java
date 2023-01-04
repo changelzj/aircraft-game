@@ -34,7 +34,7 @@ public class GameMain {
         JFrame frame = new JFrame();
 
         frame.setSize(width, height);
-        frame.setTitle("微信飞机大战Java版 powered by ZijianLiu");
+        frame.setTitle("微信飞机大战Java版 powered by ZijianLiu 2023");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
