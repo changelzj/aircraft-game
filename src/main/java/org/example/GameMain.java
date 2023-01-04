@@ -5,12 +5,18 @@ import javax.swing.*;
 
 public class GameMain {
 
+    // 游戏界面大小
     public static int width = 500;
-
     public static int height = 850;
 
-    public static boolean sound = true;
+    // 静音信号
+    public static volatile boolean sound = true;
+    // 游戏运行状态信号
+    public static volatile boolean runStatus = true;
 
+    /**
+     * 程序起点
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
 
@@ -24,7 +30,6 @@ public class GameMain {
         gamePanel.setSize(width, height);
         frame.add(gamePanel);
         frame.addMouseMotionListener(gamePanel);
-
         frame.setVisible(true);
 
         gamePanel.init();

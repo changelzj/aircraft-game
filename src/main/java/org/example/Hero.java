@@ -14,9 +14,9 @@ public class Hero {
 
     private ImageIcon imageIcon = new ImageIcon(heroPath);
 
-    private int width = 500;
+    private int width = 0;
 
-    private int height = 850;
+    private int height = 0;
 
     private volatile boolean live = true;
 
