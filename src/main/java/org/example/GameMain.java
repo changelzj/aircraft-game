@@ -14,6 +14,19 @@ public class GameMain {
     // 游戏运行状态信号
     public static volatile boolean runStatus = true;
 
+    static {
+        try {
+            if (Integer.parseInt(System.getProperty("sound")) == 1) {
+                sound = true;
+            } else {
+                sound = false;
+            }
+        }
+        catch (Exception e) {
+            sound = false;
+        }
+    }
+
     /**
      * 程序起点
      */
