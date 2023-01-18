@@ -145,9 +145,7 @@ public class GamePanel extends JPanel implements MouseMotionListener {
                 y1++;
 
                 // 敌机移动和回收
-                for (int i = 0; i < enemies.size(); i++) {
-                    Enemy enemy = enemies.get(i);
-
+                for (Enemy enemy : enemies) {
                     enemy.move();
 
                     if (enemy.getY() > GameMain.height) {
@@ -156,23 +154,17 @@ public class GamePanel extends JPanel implements MouseMotionListener {
                 }
 
                 // 子弹运动和回收
-                for (int i = 0; i < bullets.size(); i++) {
-                    Bullet bullet = bullets.get(i);
+                for (Bullet bullet : bullets) {
                     bullet.move();
 
                     if (bullet.getY() < -10) {
                         bullets.remove(bullet);
                     }
-
                 }
 
                 // 判断命中敌机
-                for (int i = 0; i < bullets.size(); i++) {
-                    Bullet bullet = bullets.get(i);
-
-                    for (int j = 0; j < enemies.size(); j++) {
-                        Enemy enemy = enemies.get(j);
-
+                for (Bullet bullet : bullets) {
+                    for (Enemy enemy : enemies) {
                         // 是否命中敌机
                         if (isHit(enemy, bullet)) {
                             MusicUtil.playMusic("sounds/enemy-blowup.wav", false);
@@ -185,9 +177,10 @@ public class GamePanel extends JPanel implements MouseMotionListener {
                     }
                 }
 
+
+
                 //判断被敌机反杀
-                for (int j = 0; j < enemies.size(); j++) {
-                    Enemy enemy = enemies.get(j);
+                for (Enemy enemy : enemies) {
                     if (isAntikill(enemy, hero)) {
                         this.fail();
                         break;
@@ -252,18 +245,15 @@ public class GamePanel extends JPanel implements MouseMotionListener {
 
         g.drawImage(hero.getImageIcon().getImage(), hero.getX(), hero.getY(), null );
 
-        for (int i = 0; i < enemies.size(); i++) {
-            Enemy enemy = enemies.get(i);
+        for (Enemy enemy : enemies) {
             g.drawImage(enemy.getEnemyIcon().getImage(), enemy.getX(), enemy.getY(), null);
         }
 
-        for (int i = 0; i < bullets.size(); i++) {
-            Bullet bullet = bullets.get(i);
+        for (Bullet bullet : bullets) {
             g.drawImage(bullet.bulletIcon.getImage(),  bullet.getX(), bullet.getY(), null);
         }
 
-        for (int i = 0; i < enemyBombs.size(); i++) {
-            EnemyBomb enemyBomb = enemyBombs.get(i);
+        for (EnemyBomb enemyBomb : enemyBombs) {
             g.drawImage(enemyBomb.getImageIcon().getImage(), enemyBomb.getX(), enemyBomb.getY(), null);
         }
 
